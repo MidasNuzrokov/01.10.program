@@ -47,9 +47,11 @@ def clouds(q, w, e, r, t, y, u, o):
         c.create_oval(W, Q, E, R, outline=("black"), fill=('white'), width=0)
 #Dvizenie
 def update_1():
-  moveObjectBy(obj, 5, 0)
-  if xCoord(obj) >= 600:
-    close()
+    global d
+    moveObjectBy(obj, d, 0)
+    if xCoord(obj) >= 500 or xCoord(obj) <= -200 :
+        d=-d
+
 ###OSNOVNOY KOD
 backboard()
 #zvetochki na pole
@@ -60,6 +62,7 @@ for I in range(1, 50, 1):
 #Solnze
 brushColor("yellow")
 obj = circle(40, 40, 100)
+d = 5
 onTimer(update_1, 50)
 #oblaka
 canvasSize(500, 800)
